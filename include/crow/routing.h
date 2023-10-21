@@ -1599,6 +1599,7 @@ namespace crow
                     }
                     if (rules_matched)
                     {
+                        *found = per_methods_[static_cast<int>(method_actual)].trie.find(req.url);
                         allow = allow.substr(0, allow.size() - 2);
                         res = response(204);
                         res.set_header("Allow", allow);
